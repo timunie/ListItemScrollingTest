@@ -1,0 +1,28 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 xmlns:icons="clr-namespace:Projektanker.Icons.Avalonia;assembly=Projektanker.Icons.Avalonia"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:ListItemScrolling.ViewModels"
+			 xmlns:controls="using:ListItemScrolling.Controls"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="ListItemScrolling.Views.MainView"
+             x:DataType="vm:MainViewModel">
+	<Design.DataContext>
+		<!-- This only sets the DataContext for the previewer in an IDE,
+         to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+		<vm:MainViewModel />
+	</Design.DataContext>
+
+	<controls:ListBox_Expanded>
+		<controls:ListBox_Expanded.Styles>
+			<Style Selector="controls|ListBox_wConfirmation#MainList">
+				<Setter Property="ItemsSource"
+						Value="{Binding Items}"/>
+				<Style Selector="^ controls|ListBoxItem_wConfirmation:confirmed">
+					<Setter Property="Background" Value="Red"/>
+				</Style>
+			</Style>
+		</controls:ListBox_Expanded.Styles>
+	</controls:ListBox_Expanded>
+</UserControl>
