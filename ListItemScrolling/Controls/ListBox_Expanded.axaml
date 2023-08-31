@@ -1,49 +1,56 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-		
-        xmlns:controls="using:ListItemScrolling.Controls"
-		>
-	<Design.PreviewWith>
-		<Border Margin="20" MinWidth="740" MinHeight="400">
-			<controls:ListBox_Expanded/>
-		</Border>
-	</Design.PreviewWith>
 
-	<Style Selector="controls|ListBox_Expanded">
-		<Setter Property="Template">
-			<ControlTemplate>
-				<Grid RowDefinitions="Auto, *" Margin="10">					
-					<!-- Main Content View -->
-					<Grid Grid.Row="1" ColumnDefinitions="*, 3*">
-						<!-- Left Section: List View -->
-						<ToggleButton IsVisible="False" />
-						<Border Grid.Column="0"
-								CornerRadius="5" ClipToBounds="True"
-								Background="Transparent"
-								BorderBrush="Gray" BorderThickness="1">
-							<Grid>
-								<controls:ListBox_wConfirmation Name="MainList" Background="Transparent" CornerRadius="5"/>
-							</Grid>
-						</Border>
-						<!-- Right Section: Details View-->
-						<Border Grid.Column="1"
-								CornerRadius="5" ClipToBounds="True"
-								Margin="20 0 0 0"
-								Background="Transparent"
-								BorderBrush="Gray" BorderThickness="1"
-								>
-							<Grid RowDefinitions="*,Auto,Auto" Margin="10">
-								<ScrollViewer Grid.Row="0">
-								</ScrollViewer>
-								<Grid Grid.Row="2" ColumnDefinitions="*,*">
-									<Button Name="Button_M_Select" Grid.Column="0" Content="Select" Classes="ThemedConfirmButton"/>
-									<Button Name="Button_M_Cancel" Grid.Column="1" Content="Cancel" Classes="ThemedConfirmButton"/>
-								</Grid>
-							</Grid>
-						</Border>
-					</Grid>
-				</Grid>
-			</ControlTemplate>
-		</Setter>
-	</Style>
+        xmlns:controls="using:ListItemScrolling.Controls">
+    <Design.PreviewWith>
+        <Border Margin="20" MinWidth="740" MinHeight="400">
+            <controls:ListBox_Expanded />
+        </Border>
+    </Design.PreviewWith>
+
+    <Style Selector="controls|ListBox_Expanded">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Grid RowDefinitions="Auto, *" Margin="10">
+                    <!-- Main Content View -->
+                    <Grid Grid.Row="1" ColumnDefinitions="*, 3*">
+                        <!-- Left Section: List View -->
+                        <ToggleButton IsVisible="False" />
+                        <Border Grid.Column="0"
+                                CornerRadius="5" ClipToBounds="True"
+                                Background="Transparent"
+                                BorderBrush="Gray" BorderThickness="1">
+                            <Grid>
+                                <controls:ListBox_wConfirmation Name="MainList" Background="Transparent"
+                                                                CornerRadius="5">
+                                    <ListBox.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <StackPanel />
+                                        </ItemsPanelTemplate>
+                                    </ListBox.ItemsPanel>
+                                </controls:ListBox_wConfirmation>
+                            </Grid>
+                        </Border>
+                        <!-- Right Section: Details View-->
+                        <Border Grid.Column="1"
+                                CornerRadius="5" ClipToBounds="True"
+                                Margin="20 0 0 0"
+                                Background="Transparent"
+                                BorderBrush="Gray" BorderThickness="1">
+                            <Grid RowDefinitions="*,Auto,Auto" Margin="10">
+                                <ScrollViewer Grid.Row="0">
+                                </ScrollViewer>
+                                <Grid Grid.Row="2" ColumnDefinitions="*,*">
+                                    <Button Name="Button_M_Select" Grid.Column="0" Content="Select"
+                                            Classes="ThemedConfirmButton" />
+                                    <Button Name="Button_M_Cancel" Grid.Column="1" Content="Cancel"
+                                            Classes="ThemedConfirmButton" />
+                                </Grid>
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+    </Style>
 </Styles>
